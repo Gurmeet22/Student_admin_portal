@@ -15,12 +15,11 @@
 	
 		<div class="card" style="background-color:#FFFF66;">
 		  <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="background: -webkit-linear-gradient(left, #0A1612, #1A2930);color:white;">Record of Registered Students</h3>
-		  <div class="card-body" >
+		  <div class="card-body col-lg-12  col-md-12 col-sm-12 col-xs-12" style="padding:0;" >
 			<div id="table" class="table-editable" style="background: -webkit-linear-gradient(left, #0A1612, #1A2930);">
-			  <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x"
-					aria-hidden="true"></i></a></span>
-			<form method="POST" action="http://localhost/scripts/sendinfo.php">
-			  <table class="table table-bordered table-responsive-md table-striped text-center" style="color:white;">
+			  
+			<form method="POST" action="http://localhost/JEE/sendinfo.php">
+			  <table class="table table-bordered table-responsive-md  text-center" style="color:white;">
 				<tr>
 				  <th class="text-center">Roll No.</th>
 				  <th class="text-center">Student Name</th>
@@ -75,7 +74,7 @@
 				
 			  </table>
 			  <input type="submit" name="submit" class="btnContactSubmit" value="Submit" style="width:20%;margin:0;position:relative;left:400px;margin-bottom:20px;" />
-			  <input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/scripts/index.php'" style="width:20%;margin:0;position:relative;left:500px;margin-bottom:20px;"></input>
+			  <input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/JEE/index.php'" style="width:20%;margin:0;position:relative;left:500px;margin-bottom:20px;">
 			  </form>
 			</div>
 		  </div>
