@@ -1,7 +1,7 @@
 <?php
 	$p=array();$ch=array();$m=array();$t=array();
 	$size=sizeof($_POST);
-	$number=$size/3;;   //here 3 is number of column in the HTML table
+	$number=$size/3;
 	$i=0;$number--;
 	for($i=0;$i<$number;$i++)
 	{
@@ -27,8 +27,8 @@
 		WHERE Roll = ".($i+1);		
 		$conn->query($sql);
 	}
-	//header('Location: http://localhost/scripts/table.php');
-	echo '<script>alert("Data updated Successfully");window.location = "http://localhost/scripts/table.php";</script>';
+	//header('Location: http://localhost/JEE/table.php');
+	echo '<script>window.location = "http://localhost/JEE/table.php";alert("Data updated Successfully");</script>';
 	
 	
 ?>

@@ -15,26 +15,26 @@
 		} 
 		if (isset($_POST["LGform1"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 			$roll = $_POST["rno"];
-			$sql = "SELECT Password FROM class WHERE Roll=$roll";
+			$sql = "SELECT Password FROM class WHERE Username='$roll'";
 			$result = $conn->query($sql);
 			if ($result->num_rows > 0) {
 				$row = $result->fetch_assoc();
 				$pass = $row["Password"];
 				if(strcmp($pass,$_POST["user_pwd"])==0){
-					header('Location: http://localhost/scripts/user.php?q='.$roll); }
+					header('Location: http://localhost/JEE/user.php?q='.$roll); }
 				else{
 					$perr = "*Invalid Password";
 					//header('Location: http://localhost/scripts/index.php');
 				}
 			}
 			else{
-				$rerr = "*Invalid Roll Number";/*header('Location: http://localhost/scripts/index.html');die;*/
+				$rerr = "*Invalid Username";/*header('Location: http://localhost/scripts/index.html');die;*/
 			}
 		}
 		if (isset($_POST["LGform2"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 			$ap = $_POST["apwd"];
 			if(strcmp($ap,"admin")==0){
-				header('Location: http://localhost/scripts/table.php');
+				header('Location: http://localhost/JEE/table.php');
 			}
 			else{
 				$aerr="*Invalid Password";
@@ -81,7 +81,7 @@
 					alert(msg);
 				  }
 				};
-				xmlhttp.open("GET", "http://localhost/scripts/sendmail.php?q=" + roll, true);
+				xmlhttp.open("GET", "http://localhost/JEE/sendmail.php?q=" + roll, true);
 				xmlhttp.send();
 				}
 				else{return;}
@@ -111,18 +111,18 @@
                                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                         <div class="form-group">											
 											<span class="error"><?php echo "$rerr";?></span>									    
-                                            <input type="text" name="rno" class="form-control" placeholder="Your Roll No.*" required=""/>
+                                            <input type="text" name="rno" class="form-control" placeholder="Your Username *" required/>
                                         </div>
                                         <div class="form-group" >
 											<span class="error"><?php echo "$perr";?></span>	
-                                            <input type="password" name="user_pwd" class="form-control" placeholder="Your Password *" required=""  />
+                                            <input type="password" name="user_pwd" class="form-control" placeholder="Your Password *" required  />
                                         </div>
                                         <div class="form-group">
                                             <input type="submit" name="LGform1" class="btnContactSubmit" value="Login" />
                                             <span role="button" onclick="myfunction()" class="btnForgetPwd" >Forgot Password?</span>										
                                         </div>
 										<div class="form-group">
-                                            <a href="http://localhost/scripts/register.php" class="btnForgetPwd" >New User? Register...</a>
+                                            <a href="http://localhost/JEE/register.php" class="btnForgetPwd" >New User? Register...</a>
                                         </div>
                                     </form>
                                 </div>

@@ -4,13 +4,17 @@
 		$username = "Gurmeet";
 		$password = "WINDOWSTEN";
 		$dbname = "studentdb";
-		$name="";$fname="";$email="";$dob="";$age="";$gen="";$con="";$uname="";$cat="";$phy="";$chem="";$math="";$tot="";$grank="";$crank="";$roll=$_REQUEST["q"];
+		$name="";$fname="";$email="";$dob="";$age="";$gen="";$con="";$roll="";$cat="";$phy="";$chem="";$math="";$tot="";$grank="";$crank="";$uname=$_REQUEST["q"];
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
 		// Check connection
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		} 
+		$sql2 = "SELECT Roll FROM class WHERE Username = '$uname'";
+		$result1 = $conn->query($sql2);
+		$row1 = $result1->fetch_assoc();
+		$roll=$row1['Roll'];
 		$sql = "SELECT * FROM class WHERE Roll = $roll";
 		$sql1 = "SELECT Physics,Chemistry,Maths,Total,Rank,Category_Rank FROM marks WHERE Roll = $roll";
 		$result = $conn->query($sql);
@@ -92,10 +96,10 @@
 						$(this).replaceWith($('<input type="email" >').attr({ id: $(this).attr("id"), value: $(this).text(), class: 'updat  form-control'}));
 					});
 					$('#g').each( function() {
-						$(this).replaceWith($('<select  id="g" class="updat form-control"><option>Male</option><option>Female</option><option>Other</option></select>'));
+						$(this).replaceWith($('<select  id="g" class="updat form-control"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select>'));
 					});
 					$('#cat').each( function() {
-						$(this).replaceWith($('<select  id="cat" class="updat form-control"><option>General</option><option>OBC</option><option>SC</option><option>ST</option></select>'));
+						$(this).replaceWith($('<select  id="cat" class="updat form-control"><option value="General">General</option><option value="OBC">OBC</option><option value="SC">SC</option><option value="ST">ST</option></select>'));
 					});
 				
 					$('#update').click(function(){
@@ -103,7 +107,7 @@
 							roll : Number($('#rno').text()),
 							name : $('#nam').val(),
 							fname : $('#fnam').val(),
-							gender : $('#g').find(":selected").text(),
+							gender : $('#g option:selected').val(),
 							contact : $('#cn').val(),
 							age : Number($('#a').val()),
 							dob :  $('#dob').val(),
@@ -111,7 +115,7 @@
 							cat : $('#cat').find(":selected").text(),
 							uname: $('#unam').val()
 						};
-						//alert(info);
+						//alert(info.gender);
 						var xmlhttp = new XMLHttpRequest();
 						xmlhttp.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {

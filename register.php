@@ -27,11 +27,16 @@ if(isset($_POST["register"])){
 			die("Connection failed: " . $conn->connect_error);
 		}
 		$sql = "INSERT INTO class (Name, Father, Age, DOB, Email, Gender, Contact, Username, Password, Category)
-		VALUES ('$name', '$fname', $age, '$dob', '$email', '$gen', $ph, '$user', '$pwd', '$cat')";
+		VALUES ('$name', '$fname', $age, '$dob', '$email', '$gen', '$ph', '$user', '$pwd', '$cat')";
 		$sql1 = "INSERT INTO marks (Name, Category)
 		VALUES ('$name', '$cat')";
 		$conn->query($sql);$conn->query($sql1);
-		header('Location: http://localhost/scripts/index.php');
+		/*$sql2 = "select Roll from class where Username='$user'";
+		$result = $conn->query($sql2);
+		$row = $result->fetch_assoc();
+		$roll = $row["Roll"];
+		echo "<script>window.location = 'http://localhost/JEE/index.php';alert('Your roll number is '".$roll."' Please note it down.'</script>";*/
+		header('Location: http://localhost/JEE/index.php');
 	}
 }
 ?>
@@ -72,16 +77,6 @@ if(isset($_POST["register"])){
 				background-color: #0A1612;
 			}
 
-			*[role="form"] h2 { 
-				font-family: 'Open Sans' , sans-serif;
-				font-size: 40px;
-				font-weight: 600;
-				color: #fff;
-				margin-top: 5%;
-				text-align: center;
-				text-transform: uppercase;
-				letter-spacing: 4px;
-			}
 		</style>
     </head>
     <body>
@@ -90,26 +85,26 @@ if(isset($_POST["register"])){
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <h2>Registration</h2>
                 <div class="form-group">
-                        <input type="text" id="Name" placeholder="Enter your Name" class="form-control" name="name" required="" autofocus>                  
+                        <input type="text" id="Name" placeholder="Enter your Name" class="form-control" name="name" required autofocus>                  
                 </div>
              
                 <div class="form-group">
-                       <input type="email" id="email" placeholder="Enter your Email id" class="form-control" name= "email" required="">        
+                       <input type="email" id="email" placeholder="Enter your Email id" class="form-control" name= "email" required>        
                 </div>
 				
                 <div class="form-group">
-                        <input type="date" id="birthDate" class="form-control" name="dob" required="DOB" placeholder="Date of birth" >
+                        <input type="date" id="birthDate" class="form-control" name="dob" required placeholder="Date of birth" >
                 </div>
                 <div class="form-group">                    
-                        <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control" name="ph" required="">            
+                        <input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control" name="ph" required>            
                     
                 </div>
                 <div class="form-group">
-                        <input type="text" id="fname" placeholder="Father's name" class="form-control" name="fname" required="">
+                        <input type="text" id="fname" placeholder="Father's name" class="form-control" name="fname" required>
                 </div>
 				
                  <div class="form-group">
-                        <input type="number" id="age" placeholder="Age" class="form-control" name="age" required="">
+                        <input type="number" id="age" placeholder="Age" class="form-control" name="age" required>
                 </div>
                 <div class="form-group">
 				<div class="row">
@@ -135,7 +130,7 @@ if(isset($_POST["register"])){
                 </div>
 				<div class="form-group">
 				  <label for="cat" style="color:yellow">Category:</label>
-				  <select class="form-control" id="cat" name="cate" required="">
+				  <select class="form-control" id="cat" name="cate" required>
 					<option>General</option>
 					<option>OBC</option>
 					<option>SC</option>
@@ -143,22 +138,21 @@ if(isset($_POST["register"])){
 				  </select>
 				</div>
 				<div class="form-group">
-                        <input type="text" id="uame" placeholder="Enter a Username" class="form-control" name="username" required="">
+                        <input type="text" id="uame" placeholder="Enter a Username" class="form-control" name="username" required>
                 </div>
                 <div class="form-group">
-                        <input type="password" id="password" placeholder="Enter a Password" class="form-control" name="pwd" required="">
+                        <input type="password" id="password" placeholder="Enter a Password" class="form-control" name="pwd" required>
                 </div>
                 <div class="form-group">
-                        <input type="password" id="password" placeholder="Confirm Password" class="form-control" name="cpwd" required="">
+                        <input type="password" id="password" placeholder="Confirm Password" class="form-control" name="cpwd" required>
                 </div>
                 <div class="form-group">
 						<span style="color:yellow"><?php echo "$err";?></span>
                         
                 </div>
-				<div class="form-group"><div class="row">
-                <div class="col-sm-6"><button type="submit" class="btnContactSubmit" name="register" >Register</button></div>
-				<div class="col-sm-6"><input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/scripts/index.php'"></input></div></div>
-				</div>
+				<div class="form-group">
+                <input type="submit" class="btnContactSubmit" name="register" value="Register" >
+				        <input type="button"  class="btnContactSubmit" name="cancel" value="Cancel" onclick="window.location.href = 'http://localhost/JEE/index.php'" style="position:relative;left:310px;top:-65px"></div>
             </form> 
         </div>
 		</div>

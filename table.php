@@ -14,7 +14,7 @@
 		
 	
 		<div class="card" style="background-color:#FFFF66;">
-		  <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="background: -webkit-linear-gradient(left, #0A1612, #1A2930);color:white;">Record of Registered Students</h3>
+		  <h3 class="card-header text-center py-5" style="background: -webkit-linear-gradient(left, #0A1612, #1A2930);color:white;">RECORD OF REGISTERED STUDENTS</h3>
 		  <div class="card-body col-lg-12  col-md-12 col-sm-12 col-xs-12" style="padding:0;" >
 			<div id="table" class="table-editable" style="background: -webkit-linear-gradient(left, #0A1612, #1A2930);">
 			  
