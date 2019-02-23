@@ -177,8 +177,7 @@
 										<span class="error" style="font-size: 150%;position:relative;left:150px;">Chemistry: <span style="color:#FFFFFF"><?php echo $chem; ?></span></span><br>
 										<span class="error" style="font-size: 150%;position:relative;left:150px;" >Maths: <span  style="color:#FFFFFF"><?php echo $math; ?></span></span><br>
 										<span class="error" style="font-size: 150%;position:relative;left:150px;" >Total: <span  style="color:#FFFFFF"><?php echo $tot; ?></span></span><br>
-										<span class="error" style="font-size: 150%;position:relative;left:150px;" >General rank: <span  style="color:#FFFFFF"><?php echo $grank; ?></span></span><br>
-										<span class="error" style="font-size: 150%;position:relative;left:150px;" >Category rank: <span  style="color:#FFFFFF"><?php echo $crank; ?></span></span><br>
+										
                                     
 								</div>
 								<div class="col-md-6">
